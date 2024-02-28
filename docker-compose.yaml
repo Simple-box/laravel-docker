@@ -1,3 +1,5 @@
+command: sh -c "php artisan migrate --force && service nginx start && php-fpm" 
+
 version : '3'
 
 services: 
@@ -7,3 +9,16 @@ services:
         - "8080:80"
       volumes:
         - ./:/usr/share/nginx
+      networks:
+        -app-network
+
+    mysql-app:
+      image: mysql:5.7.22
+      ports:
+        - "3306:3306"
+      environment:
+        MYSQL_DATABASE: laravel
+        MYSQL_ROOT_PASSWORD: laravel
+networks:
+  app-network:
+    driver: bridge
