@@ -1,4 +1,4 @@
-command: sh -c "php artisan migrate --force && service nginx start && php-fpm" 
+
 
 version : '3'
 
