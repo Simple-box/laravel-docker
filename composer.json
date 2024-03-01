@@ -1,5 +1,6 @@
 {
     "require": {
-        "laravel/laravel": "^10.3"
+        "laravel/laravel": "^10.3",
+        "phpmailer/phpmailer": "^6.9"
     }
 }
