@@ -13,6 +13,7 @@ services:
 
     mysql-app:
       image: mysql:5.7.22
+      command: --innodb-use-native-aio=0
       ports:
         - "3306:3306"
       volumes:
@@ -20,8 +21,7 @@ services:
       environment:
         MYSQL_DATABASE: laravel
         MYSQL_ROOT_PASSWORD: laravel
-      command:
-        'mysqld --innodb-flush-method=fsync'
+      
       networks:
         - app-network
 networks:
